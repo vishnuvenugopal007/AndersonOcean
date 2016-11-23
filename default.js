@@ -17,8 +17,8 @@ function newUpdate(timestamp, post) {
   return {timestamp: timestamp, post: post};
 }
 
-var mini-profile = {
-  mini-pic: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi.jpg'
-  username: Vishnu Venugopal
-  twittername: Vish2thenu
+var miniProfile = {
+  miniPic: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi.jpg',
+  Name: "Vishnu Venugopal",
+  twittername: "Vish2thenu"
 }
