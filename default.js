@@ -1,54 +1,108 @@
-var user = {
-    username: "Vishnu",
-    twitterHandle: "Vish2thenu",
-    profilePicture: "https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi.jpg",
-    about: 'I act. I tell jokes. I try to sing and dance. Spread love. Spread light. Go Blue.',
-    updates: [newUpdate('12:30', 'Got me working through lunch!'),
-              newUpdate('12:27', 'Man this coding thing is tough'),
-              newUpdate('9:25', 'Taco Bell for breakfast, but I am at class now'),
-              newUpdate('8:55', 'On the way to drop of these glasses.'),
-              newUpdate('8:45', 'Mom left her glasses, gotta get those to her.')
-             ]
-}
+/* <div id= "cover-photo"></div>
+*/
 var coverPhoto = {
-  cover: 'https://pbs.twimg.com/media/Cq2E4VfUkAEuJ6i.jpg'
+  image.src = ''
+
+}
+function renderCover(photo) {
+  /*
+  <div class="coverPhoto">
+  </div>
+  */
+  var $coverPhoto = document.createElement('div')
+  $coverPhoto.content = photo.cover
+  $coverPhoto.appendChild(cover)
+  $coverPhoto.setAttribute('class', 'cover-photo')
+
+  return $coverPhoto
 }
 
-function newUpdate(timestamp, post) {
-  return {timestamp: timestamp, post: post};
-}
+/*
+<div id="profile">
+  <div id="profile-photo"> </div>
+  <div id="user-info">
+    <h2 class = "username"></h2>
+    <h3 class = "twittername"></h3>
+    <p id = "about"></p>
+  </div>
+*/
 
-function newElement(tagName, className, text) {
-  var newElement = document.createElement(tagName);
-  newElement.className = className;
-  if(text !== null)
-    newElement.appendChild(docuent.createTextNode(text));
-    return newElement;
-}
-
-function displayProfile() {
-  var point = document.getElementByID('photo');
-  point.style.backgroundImage = 'url(' + user.profilePicture + ')';
-  point = document.getElementById('twitterhandle');
-  point.appendChild(document.createTextNode('@' + user.twitterHandle));
-  point = document.getElementById('about');
-  point.appendChild(document.createTextNode(user.aboutMe));
-}
-
-function displayUpdates() {
-  var i;
-  var containerPoint = document.getElementByID('updates');
-  for (i=0; i < user.updates.length; i++) {
-    containerPoint.appendChild(newElement('div', 'update', null));
-    childPoint = contaierPoint.lastChild;
-    childPoint.appendChild(newElement('h4', 'username', '@' + user.twitterHandle))
-    childPoint.appendChild(newElement('p', 'timestamp', user.updates[i].timestamp))
-    childPoint.appendChild(newElement('p', 'post', user.updates[i].post))
-  }
+var profile = {
+  profilePicture: '',
+  name:" ",
+  handle: " ",
+  about: " "
 }
 
 var miniProfile = {
-  miniPic: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi.jpg',
-  Name: "Vishnu Venugopal",
-  twitterhandle: "Vish2thenu",
+ miniPic: url('https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi.jpg'),
+ name: "Vishnu Venugopal",
+ handle: "Vish2thenu",
+ about: "I act. I tell jokes. I try to sing and dance."
+}
+
+document.header.appendChild(miniProfile)
+
+/*
+var feed = [
+  {username:"Haytham",twittername: "OFTemplar", content: "Why can't Natives see this isn't important?"}
+  {username:"Connor" twittername:"NativeAvenger" content: "Standing Rock is Our Movement #NoDAPL"}
+  {username:"Vic" twittername:"StillAlive" content: "@NativeAvenger your dad is wack"}
+  {username:"Edward" twittername:"CaptKenway" content:"This is complicated. Much more complicated than I would like."}
+  {username:"Mary" twittername: "CaptainKidd" content: "Never thought your family would be so split @CaptKenway"}
+]
+*/
+
+var tweets = [
+  {
+    name: 'Vishnu',
+    handle: 'Vish2thenu',
+    content: 'Hello',
+    timestamp: Date.now()
+  },
+  {
+    name: 'Tim',
+    handle: 'thebearingedge',
+    content: 'Suuuup?'
+    timestamp:Date.now()
+  },
+  {
+    name: 'Ron',
+    handle: 'ronperris',
+    content: 'Code!!!!!'
+    timestamp: Date.now()
+  }
+]
+
+function renderTweet(tweet) {
+  /**
+   * <div class="tweet">
+   *   <h4>{ name }</h4>
+   *   <span>{ handle }</span>
+   *   <p>{ content }</p>
+   *   <p>{ timestamp }</p>
+   * </div>
+   */
+   var $tweet = document.createElement('div')
+   var $name = document.createElement('h4')
+   $name.textContent = tweet.name
+   var $handle = document.createElement('span')
+   $handle.textContent = tweet.handle
+   var $content = document.createElement('p')
+   $content.textContent = tweet.content
+   var $timestamp = document.createElement('p')
+   $timestamp.textContent = tweet.timestamp
+   $tweet.appendChild($name)
+   $tweet.appendChild($handle)
+   $tweet.appendChild($content)
+   $tweet.setAttribute('class', 'tweet')
+
+   return $tweet
+}
+
+for (var i = 0; i < tweets.length; i++) {
+  var tweet = tweets[i]
+  var $tweet = renderTweet(tweet)
+  var $feed = document.getElementById('feed')
+  $feed.appendChild($tweet)
 }
