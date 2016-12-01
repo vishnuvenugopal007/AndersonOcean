@@ -9,16 +9,25 @@
   <body>
     <header>
       <h1>Twitter</h1>
-
+       <img class="logo" id="logo" src= "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQAAAAA3bvkkAAAAAnRSTlMAAQGU/a4AAAAKSURBVHgBY2gAAACCAIFMF9ffAAAAAElFTkSuQmCC">
     </header>
   <div id="profile">
-    <div id="profile-photo"> </div>
+    <div class = "covercontainer" id="coverphoto">
+      <img id= "cover" src="https://pbs.twimg.com/media/Cq2E4VfUkAEuJ6i.jpg">
+    </div>
+  <div id="profilephoto">
+      <img id="profilepicture" src="#">
+    </div>
     <div id="user-info">
-      <h2 class = "username"></h2>
-      <h3 class = "twittername"></h3>
+      <h2 class = "name"></h2>
+      <h3 class = "handle"></h3>
       <p id = "about"></p>
     </div>
-  <div class = "container" id="timeline">
+  </div>
+  <div id="timeline">
+    <form id="new-tweet">
+      <span>
+        <button> <type:"tweet" name="tweet">Tweet</button>
     <div class = "tweet">
       <h4 class = "username"></h4>
       <h5 class = "twittername"></h5>
@@ -26,7 +35,7 @@
       <p class = "content"></p>
     </div>
   </div>
-  </div>
   <script src="default.js"></script>
+  <script src="profile.js"></script>
 </body>
 </html>
