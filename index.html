@@ -5,34 +5,24 @@
     <meta charset="utf-8">
     <title>140 Or Less</title>
       <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css?family=Reem+Kufi:300,400,700" rel="stylesheet">
+      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
   <body>
     <header>
       <h1>Twitter</h1>
-       <img class="logo" id="logo" src= "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQAAAAA3bvkkAAAAAnRSTlMAAQGU/a4AAAAKSURBVHgBY2gAAACCAIFMF9ffAAAAAElFTkSuQmCC">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i class="fa fa-twitter fa-stack-1x"></i>
+      </span>
     </header>
-  <div id="profile">
-    <div class = "covercontainer" id="coverphoto">
-      <img id= "cover" src="https://pbs.twimg.com/media/Cq2E4VfUkAEuJ6i.jpg">
+    <div id="container">
+      <div id="profile-view">
+      </div>
     </div>
-  <div id="profilephoto">
-      <img id="profilepicture" src="#">
-    </div>
-    <div id="user-info">
-      <h2 class = "name"></h2>
-      <h3 class = "handle"></h3>
-      <p id = "about"></p>
-    </div>
-  </div>
   <div id="timeline">
-    <form id="new-tweet">
-      <span>
-        <button> <type:"tweet" name="tweet">Tweet</button>
-    <div class = "tweet">
-      <h4 class = "username"></h4>
-      <h5 class = "twittername"></h5>
-      <p class = "timestamp"></p>
-      <p class = "content"></p>
+    <form id="new-tweet"></form>
+    <div id = "feed" class = "list">
     </div>
   </div>
   <script src="default.js"></script>
