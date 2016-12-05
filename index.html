@@ -4,29 +4,28 @@
   <head>
     <meta charset="utf-8">
     <title>140 Or Less</title>
-      <link rel= "stylesheet" href="styles.css">
+      <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css?family=Reem+Kufi:300,400,700" rel="stylesheet">
+      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
   <body>
     <header>
       <h1>Twitter</h1>
-      <div id= "cover-photo"></div>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i class="fa fa-twitter fa-stack-1x"></i>
+      </span>
     </header>
-  <div id="profile">
-    <div id="profile-photo"> </div>
-    <div id="user-info">
-      <h2 class = "username"></h2>
-      <h3 class = "twittername"></h3>
-      <p id = "about-me"></p>
+    <div id="container">
+      <div id="profile-view">
+      </div>
     </div>
-  <div class = "container" id="updates">
-    <div class = "tweet">
-      <h4 class = "username"></h4>
-      <h5 class = "twittername"></h5>
-      <p class = "timestamp"></p>
-      <p class = "post"></p>
+  <div id="timeline">
+    <form id="new-tweet"></form>
+    <div id = "feed" class = "list">
     </div>
-  </div>
   </div>
   <script src="default.js"></script>
+  <script src="profile.js"></script>
 </body>
 </html>
