@@ -1,25 +1,6 @@
 //an attempt to create a list of tweets, viewable by a user
 //along with a cover photo
 
-/* <div id= "cover-photo"></div>
-
-var coverPhoto = {
-  image.src = ''
-
-}
-function renderCover(photo) {
-
-  <div class="coverPhoto">
-  </div>
-
-  var $coverPhoto = document.createElement('div')
-  $coverPhoto.content = photo.cover
-  $coverPhoto.appendChild(cover)
-  $coverPhoto.setAttribute('id', 'coverphoto')
-
-  return $coverPhoto
-}*/
-
 var tweets = [
   {
     img: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi_bigger.jpg',
@@ -164,16 +145,3 @@ var $profile = renderProfile(profiles[0])
 
 var $profileView = document.getElementById("profile-view")
 $profileView.appendChild($profile)
-
-/*
-
-var miniProfile = {
- miniPic: url('https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi.jpg'),
- name: "Vishnu Venugopal",
- handle: "Vish2thenu",
- about: "I act. I tell jokes. I try to sing and dance."
-}
-
-document.header.appendChild(miniProfile)
-
-*/
