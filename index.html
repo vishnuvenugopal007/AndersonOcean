@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <h1>Twitter
+      <h1>
       <span id="logo" class="fa-stack fa-lg">
         <i class="fa fa-square-o fa-stack-2x"></i>
         <i class="fa fa-twitter fa-stack-1x"></i>
@@ -22,7 +22,12 @@
       </div>
     </div>
   <div id="timeline">
-    <form id="new-tweet"></form>
+    <form id="new-tweet">
+        <textarea required="true" cols="50" rows="1" minlength="1" id="posttext">What's Happening?</textarea>
+        <span>
+          <button type="submit" name="submit">Post</button>
+        </span>
+      </form>
     <div id = "feed" class = "list">
     </div>
   </div>
