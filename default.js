@@ -8,21 +8,21 @@ var waves = [
     name: 'Vishnu',
     handle: 'Vish2thenu',
     content: 'Hello',
-    timestamp: Date.now()
+    timestamp: " 8:30 PM"
   },
   {
     img: 'https://avatars3.githubusercontent.com/u/7432943?v=3&s=460',
     name: 'Tim',
     handle: 'thebearingedge',
     content: 'Suuuup?',
-    timestamp:Date.now()
+    timestamp: "12:30 PM"
   },
   {
     img: 'https://avatars1.githubusercontent.com/u/963451?v=3&s=460',
     name: 'Ron',
     handle: 'ronperris',
     content: 'Code!!!!!',
-    timestamp: Date.now()
+    timestamp: "9:30 AM"
   }
 ]
 */
@@ -59,25 +59,35 @@ function renderWaves(waves) {
    var $wave = document.createElement('div')
    $wave.setAttribute('id', 'wave')
 
+
    var $thumbnail = document.createElement('img')
    $thumbnail.classname = 'thumbnail'
    $thumbnail.setAttribute('thumbnailPhoto', waves[i].img)
 
    var $name = document.createElement('h4')
    $name.classname = 'name'
+
    $name.textContent = wave.name
+   $name.style.display = 'inline-block'
 
    var $handle = document.createElement('span')
    $handle.classname = 'handle'
-   $handle.textContent = wave.handle
+   $handle.textContent = '@' + wave.handle
+   $handle.style.display = 'inline-block'
 
    var $content = document.createElement('p')
    $content.classname = 'waves'
    $content.textContent = wave.content
+   $content.style.display = 'block'
 
    var $timestamp = document.createElement('span')
    $timestamp.classname = 'time'
+
    $timestamp.textContent = wave.timestamp
+   $timestamp.style.display = 'inline-block'
+   $timestamp.style.float = 'right'
+
+
 
    $wave.appendChild($name)
    $wave.appendChild($handle)
@@ -105,7 +115,6 @@ function renderProfile(profile) {
   var $profile = document.createElement('div')
   $profile.setAttribute('id', 'miniProfile')
 
-
   var $cover = document.createElement('img')
   $cover.setAttribute('id', 'canopy')
   $cover.setAttribute('coverPhoto', profiles.coverPhoto)
@@ -123,7 +132,7 @@ function renderProfile(profile) {
   $name.textContent = profile.name
 
   var $handle = document.createElement('h3')
-  $handle.textContent = profile.handle
+  $handle.textContent = " @" + profile.handle
 
   var $about = document.createElement('p')
   $about.textContent = profile.about
@@ -190,7 +199,7 @@ const users = [
 /*
 var profiles = [
   {
-    coverPhoto: 'https://pbs.twimg.com/media/Cq2E4VfUkAEuJ6i.jpg',
+    coverPhoto: 'https://s-media-cache-ak0.pinimg.com/originals/b0/f8/68/b0f868309bae68a8e0774a3b43376deb.jpg',
     coverPosition: 'center top',
     thumbnail: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi_200x200.jpg',
     name: 'Vishnu',
