@@ -1,86 +1,69 @@
-body {
-  font-family: "Reem Kufi" Helvetica;
-  background-color: #d7e5f2;
-  /*#42adf4;*/
+#header {
+ text-align: right;
+ padding-right: 2vw;
+ padding-top: 2vw;
+ padding-bottom: 2vw;
+ background-color: rgba(51, 79, 181, 0.64);
 }
 
-#canopy {
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  left: 0;
+#header > button {
+ font-size: 1.3em;
+ background-color: white;
+ border-radius: 3px;
+ border: 1px solid grey;
+ padding-left: 10vw;
+ float: right;
 }
 
-#profileview {
-  border-radius: 8px;
-  left: 0;
-  position: absolute;
-  top: 0;
+#header > span {
+}
+
+#cover {
+ height: 20vh;
+ background-color: grey;
+}
+
+#profile-image {
+ height: 10vh;
+}
+
+#profile-image > img {
+ position: relative;
+ top: -7vh;
+ left: 2vw;
+ height: 15vh;
+ border: 1px solid grey;
+}
+
+#profile-details {
+ width: 20vw;
+ float: left;
+ border: 1px solid rgba(51, 79, 181, 0.64);
+ border-radius: 3px;
+}
+
+#river {
+ width: 60vw;
+ float: right;
+}
+
+.wave {
+  width: 60%;
+  padding: 30px 20px 30px 20px;
+}
+
+.wave-image {
+ width: 20%;
+ float: left;
+}
+
+.wave-header {
+position: relative;
+top: 3vh;
+}
+
+.wave-content {
+  position: relative;
+  top: 4vh;
   float: left;
-  width: 15%;
-
-}
-/* Styling for profile */
-
-#miniProfile {
-  width: 25%;
-  display: inline-block;
-  opacity: 50%;
-
-}
-/* waves on profile */
-.list{
-  display: inline;
-  position: relative;
-  float: right;
-  text-align: center;
-}
-
-.about{
-  background-color: white;
-  width: 15%;
-}
-
-/* Styling for waves */
-#timeline {
-  display: inline-block;
-  position: relative;
-  left: 50%;
-  /*float: right;*/
-  margin-right: 300px;
-  margin-bottom: 300px;
-}
-
-.name{
-  display: inline-block;
-  font-weight: bold;
-  text-align: left;
-}
-
-.handle{
-  display: inline-block;
-  font-weight: lighter;
-}
-
-
-#river{
-  border: solid 1px black;
-  padding: 20px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-header {
-  background-color: #42adf4;
-  height: 100px;
-  width: 100%;
-  margin: 10px;
-  padding: 5px;
-}
-
-h1 {
-  position: relative;
-  left: 50%;
-  color: white;
-  font: 24px helvetica;
 }
