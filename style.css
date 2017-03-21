@@ -1,3 +1,9 @@
+body,
+newWave {
+  background-color: rgb(2, 40, 108);
+  text-co
+}
+
 #header {
  text-align: right;
  padding-right: 2vw;
@@ -24,7 +30,7 @@
 }
 
 #profile-image {
- height: 10vh;
+ height: 4vh;
 }
 
 #profile-image > img {
@@ -43,11 +49,24 @@
 }
 
 #river {
- width: 60vw;
- float: right;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75vw;
+  float: right;
+  background-color: rgba(10, 112, 186, 0.31);
 }
 
-.wave {
+.wave-image {
+  height: 5vh;
+  width: 5vw;
+}
+
+
+.waves {
+  padding: 20px;
+  border: solid 1px black;
+  overflow: hidden;
+  margin-bottom: 20px;
   width: 60%;
   padding: 30px 20px 30px 20px;
 }
@@ -58,12 +77,13 @@
 }
 
 .wave-header {
-position: relative;
-top: 3vh;
+  float: left;
+  position: relative;
+  top: 3vh;
 }
 
 .wave-content {
   position: relative;
   top: 4vh;
-  float: left;
+
 }
