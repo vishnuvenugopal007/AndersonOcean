@@ -1,35 +1,8 @@
-//an attempt to create a list of waves, viewable by a user
-//along with a cover photo
-
-/*
-var waves = [
-  {
-    img: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi_bigger.jpg',
-    name: 'Vishnu',
-    handle: 'Vish2thenu',
-    content: 'Hello',
-    timestamp: " 8:30 PM"
-  },
-  {
-    img: 'https://avatars3.githubusercontent.com/u/7432943?v=3&s=460',
-    name: 'Tim',
-    handle: 'thebearingedge',
-    content: 'Suuuup?',
-    timestamp: "12:30 PM"
-  },
-  {
-    img: 'https://avatars1.githubusercontent.com/u/963451?v=3&s=460',
-    name: 'Ron',
-    handle: 'ronperris',
-    content: 'Code!!!!!',
-    timestamp: "9:30 AM"
-  }
-]
-*/
 
 //Constructor for waves
 class Wave {
   constructor(displayName, handle, timestamp, content) {
+    this.id = id;
     this.displayName = displayName;
     this.handle = handle;
     this.profilePic = profilePic;
@@ -39,11 +12,34 @@ class Wave {
 }
 
 const waves = [
-  new Wave = ('Vishnu', 'Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Congrats to @future on grabbing the #1 & #2 albums in the country. #successandnothingless'),
-  new Wave = ('Vishnu', 'Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Hello Wave 2'),
-  new Wave = ('Vishnu', 'Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Hello Wave 3')
+  new Wave(1, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 1: Congrats to @future on grabbing the #1 & #2 albums in the country. #successandnothingless'),
+  new Wave(2, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 2: Am I the only one who thinks the "More Chune for your headtops so watch how you speak on my name" tag is wack?'),
+  new Wave(3, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 3: There are a lot of summer bangers on this Drake "playlist" though.')
 ]
 
+
+//Constructor for Users
+
+class User {
+  constructor(displayName, handle, profilePic, bio) {
+    this.displayName = displayName
+    this.handle = handle;
+    this.profilePic = profilePic;
+    this.about = about;
+  }
+}
+
+const users = [
+  new User('Vishnu','@Vish2thenu', 'images/Vish2thenu', 'The newest incarnation of the avatar of artistry.' )
+  new User('just call me Andy','@AndersonPaak', 'images/AndersonPaak', 'Grammy nominated cheerleader prom dated... https://itun.es/us/GrfZeb  international booking beckie@xraytouring.com domestic: cyim@icmpartners.com')
+  new User('Frank Ocean', '@FrankOcean', 'frank.ocean', 'images/FrankOcean', 'Life outside the internet')
+  new User('childishgambino','Childish Gambino','donaldglover','images/DonaldGlover', 'Learn to Code')
+]
+
+const currentUser = users[0];
+const currentUserName = users[0].displayName;
+const currentHandle = users[0].handle;
+const newID = waves.length + 1
 
 // creating the generic elements of a wave
 function renderWaves(waves) {
@@ -97,7 +93,9 @@ function renderWaves(waves) {
    return $wave
 }
 
-renderWaves();
+var $river = renderWaves(waves)
+document.body.appendChild($river)
+
 
 /** Loop through 'waves'
 for each wave, bring the name, handle and content to screen
@@ -157,9 +155,13 @@ function renderProfile(profile) {
   $userInfo.appendChild($handle)
   $userInfo.appendChild($about)
 
+  document.body.appendChild($profile)
+  document.body.appendChild($userInfo)
+
   return $profile
 }
-
+var $profile = renderProfile(user)
+document.body.appendChild($profile)
 
 //Create Wave
 
@@ -175,41 +177,3 @@ waveSend.className = 'wave-post';
 waveSend.setAttribute('type', 'button');
 waveSend.setAttribute('id', 'wave-send');
 waveSend.textContent = 'Make a Wave';
-
-
-//Constructor for Users
-
-class User {
-  constructor(displayName, handle, profilePic, bio) {
-    this.displayName = displayName
-    this.handle = handle;
-    this.profilePic = profilePic;
-    this.bio = bio;
-  }
-}
-
-const users = [
-  new User = ('Vishnu','@Vish2thenu', 'images/Vish2thenu', '' )
-  new User = ('just call me Andy','@AndersonPaak', 'images/AndersonPaak', 'Grammy nominated cheerleader prom dated... https://itun.es/us/GrfZeb  international booking beckie@xraytouring.com domestic: cyim@icmpartners.com')
-  new User = ('Frank Ocean', '@FrankOcean', 'frank.ocean', 'images/FrankOcean', 'Life outside the internet')
-  new User = ('childishgambino','Childish Gambino','donaldglover','images/DonaldGlover', 'Learn to Code')
-]
-
-
-/*
-var profiles = [
-  {
-    coverPhoto: 'https://s-media-cache-ak0.pinimg.com/originals/b0/f8/68/b0f868309bae68a8e0774a3b43376deb.jpg',
-    coverPosition: 'center top',
-    thumbnail: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi_200x200.jpg',
-    name: 'Vishnu',
-    handle: 'Vish2thenu',
-    about: 'First Generation. University of Michigan Alum. I act. I tell jokes. I try to sing and dance. Spread Love. Spread Light. Go Blue.'
-  }
-]
-*/
-
-var $profile = renderProfile(profiles[0])
-
-var $profileView = document.getElementById("profile")
-$profileView.appendChild($profile)
