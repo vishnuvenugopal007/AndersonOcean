@@ -1,7 +1,7 @@
 body,
 newWave {
   background-color: rgb(2, 40, 108);
-  text-co
+  text-color: white;
 }
 
 #header {
@@ -27,6 +27,7 @@ newWave {
 #cover {
  height: 20vh;
  background-color: grey;
+
 }
 
 #profile-image {
@@ -85,5 +86,5 @@ newWave {
 .wave-content {
   position: relative;
   top: 4vh;
-
 }
+
