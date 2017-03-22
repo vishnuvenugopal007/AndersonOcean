@@ -1,4 +1,3 @@
-
 //Constructor for waves
 class Wave {
   constructor(displayName, handle, timestamp, content) {
@@ -21,8 +20,9 @@ const waves = [
 //Constructor for Users
 
 class User {
-  constructor(displayName, handle, profilePic, bio) {
-    this.displayName = displayName
+  constructor(id, displayName, handle, profilePic, about) {
+    this.id = id;
+    this.displayName = displayName;
     this.handle = handle;
     this.profilePic = profilePic;
     this.about = about;
@@ -39,58 +39,79 @@ const users = [
 const currentUser = users[0];
 const currentUserName = users[0].displayName;
 const currentHandle = users[0].handle;
-const newID = waves.length + 1
+const newID = waves.length + 1;
+
+function idGenerator(waves){
+  return waves.length + 1;
+}
+
+function makeWave(waves, id, displayName, handle, profilePic, timestamp, content){
+  waves.push(new Wave(id:id, displayName:displayName, handle:handle, profilePic:profilePic, timestamp:timestamp, content:content))
+}
+
+const waveButton = document.createElement('button');
+waveButton.className = 'wave-button';
+waveButton.setAttribute('type', 'button');
+waveButton.setAttribute('id', 'wave-button');
+waveButton.textContent = 'Start a Wave';
+
+const newWaveButton = document.getElementById('new-wave-button');
+newWaveButton.appendChild(waveButton);
+
+//Create Wave
+
+const makeWave = document.createElement('textarea');
+makeWave.className = 'make-a-wave';
+makeWave.setAttribute('id', 'wave-creator');
+makeWave.setAttribute('type', 'text');
+makeWave.setAttribute('placeholder', 'What\'s in the water?');
+makeWave.setAttribute('maxlength', '280');
+
+const waveSend = document.createElement('button');
+waveSend.className = 'wave-button';
+waveSend.setAttribute('type', 'button');
+waveSend.setAttribute('id', 'wave-button');
+waveSend.textContent = 'Make a Wave';
+
+const newWaveDiv = document.getElementById('new-wave-div');
+newWaveDiv.appendChild(makeWave);
+newWaveDiv.appendChild(wavePost);
 
 // creating the generic elements of a wave
 function renderWaves(waves) {
-  /**
-   * <div class="wave">
-   *   <img id="thumbnail" src = "wave.thumbnail">
-   *   <h4>{ name }</h4>
-   *   <span>{ handle }</span>
-   *   <p>{ content }</p>
-   *   <p>{ timestamp }</p>
-   * </div>
-   */
-   var $wave = document.createElement('div')
-   $wave.setAttribute('id', 'wave')
 
+   for (var i = waves.length -1; i>= 0; i--) {
 
-   var $thumbnail = document.createElement('img')
-   $thumbnail.classname = 'thumbnail'
-   $thumbnail.setAttribute('thumbnailPhoto', waves[i].img)
+   var $wave = document.createElement('div');
+   $wave.className = 'waves';
 
-   var $name = document.createElement('h4')
-   $name.classname = 'name'
+   var $thumbnail = document.createElement('img');
+   $thumbnail.classname = 'thumbnail';
+   $thumbnail.setAttribute('thumbnailPhoto', waves[i].img);
 
-   $name.textContent = wave.name
-   $name.style.display = 'inline-block'
+   var $name = document.createElement('h4');
+   $name.classname = 'name';
+   $name.textContent = wave.name;
 
-   var $handle = document.createElement('span')
-   $handle.classname = 'handle'
-   $handle.textContent = '@' + wave.handle
-   $handle.style.display = 'inline-block'
+   var $handle = document.createElement('span');
+   $handle.classname = 'handle';
+   $handle.textContent = wave.handle;
 
-   var $content = document.createElement('p')
-   $content.classname = 'waves'
-   $content.textContent = wave.content
-   $content.style.display = 'block'
+   var $content = document.createElement('p');
+   $content.classname = 'waves';
+   $content.textContent = wave.content;
 
-   var $timestamp = document.createElement('span')
-   $timestamp.classname = 'time'
+   var $timestamp = document.createElement('span');
+   $timestamp.classname = 'time';
+   $timestamp.textContent = wave.timestamp;
 
-   $timestamp.textContent = wave.timestamp
-   $timestamp.style.display = 'inline-block'
-   $timestamp.style.float = 'right'
-
-
-
-   $wave.appendChild($name)
-   $wave.appendChild($handle)
-   $wave.appendChild($content)
-   $wave.setAttribute('class', 'wave')
+   $wave.appendChild($name);
+   $wave.appendChild($handle);
+   $wave.appendChild($content);
+   $wave.setAttribute('class', 'wave');
 
    return $wave
+ }
 }
 
 var $river = renderWaves(waves)
@@ -113,8 +134,9 @@ function renderProfile(profile) {
   var $profile = document.createElement('div')
   $profile.setAttribute('id', 'miniProfile')
 
+
   var $cover = document.createElement('img')
-  $cover.setAttribute('id', 'canopy')
+  $cover.setAttribute('id', 'cover')
   $cover.setAttribute('coverPhoto', profiles.coverPhoto)
   $cover.src = profile.coverPhoto
 
@@ -130,7 +152,7 @@ function renderProfile(profile) {
   $name.textContent = profile.name
 
   var $handle = document.createElement('h3')
-  $handle.textContent = " @" + profile.handle
+  $handle.textContent = profile.handle
 
   var $about = document.createElement('p')
   $about.textContent = profile.about
@@ -162,18 +184,3 @@ function renderProfile(profile) {
 }
 var $profile = renderProfile(user)
 document.body.appendChild($profile)
-
-//Create Wave
-
-const makeWave = document.createElement('textarea');
-makeWave.className = 'make-a-wave';
-makeWave.setAttribute('id', 'make-a-wave');
-makeWave.setAttribute('type', 'text');
-makeWave.setAttribute('placeholder', 'What\'s in the water?');
-makeWave.setAttribute('maxlength', '280');
-
-const wavePost = document.createElement('button');
-waveSend.className = 'wave-post';
-waveSend.setAttribute('type', 'button');
-waveSend.setAttribute('id', 'wave-send');
-waveSend.textContent = 'Make a Wave';
