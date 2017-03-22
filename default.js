@@ -1,90 +1,131 @@
-//an attempt to create a list of tweets, viewable by a user
-//along with a cover photo
-
-var tweets = [
-  {
-    img: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi_bigger.jpg',
-    name: 'Vishnu',
-    handle: 'Vish2thenu',
-    content: 'Hello',
-    timestamp: " 8:30 PM"
-  },
-  {
-    img: 'https://avatars3.githubusercontent.com/u/7432943?v=3&s=460',
-    name: 'Tim',
-    handle: 'thebearingedge',
-    content: 'Suuuup?',
-    timestamp: "12:30 PM"
-  },
-  {
-    img: 'https://avatars1.githubusercontent.com/u/963451?v=3&s=460',
-    name: 'Ron',
-    handle: 'ronperris',
-    content: 'Code!!!!!',
-    timestamp: "9:30 AM"
+//Constructor for waves
+class Wave {
+  constructor(displayName, handle, timestamp, content) {
+    this.id = id;
+    this.displayName = displayName;
+    this.handle = handle;
+    this.profilePic = profilePic;
+    this.timestamp = timestamp;
+    this.content = content;
   }
+}
+
+const waves = [
+  new Wave(1, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 1: Congrats to @future on grabbing the #1 & #2 albums in the country. #successandnothingless'),
+  new Wave(2, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 2: Am I the only one who thinks the "More Chune for your headtops so watch how you speak on my name" tag is wack?'),
+  new Wave(3, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 3: There are a lot of summer bangers on this Drake "playlist" though.')
 ]
 
 
-// creating the generic elements of a tweet
-function renderTweet(tweet) {
-  /**
-   * <div class="tweet">
-   *   <img id="thumbnail" src = "tweet.thumbnail">
-   *   <h4>{ name }</h4>
-   *   <span>{ handle }</span>
-   *   <p>{ content }</p>
-   *   <p>{ timestamp }</p>
-   * </div>
-   */
-   var $tweet = document.createElement('div')
-   $tweet.setAttribute('id', 'update')
+//Constructor for Users
 
-
-   var $thumbnail = document.createElement('img')
-   $thumbnail.classname = 'thumbnail'
-   $thumbnail.setAttribute('thumbnailPhoto', tweet.img)
-
-   var $name = document.createElement('h4')
-   $name.classname = 'name'
-   $name.textContent = tweet.name
-   $name.style.display = "inline-block"
-
-
-
-   var $handle = document.createElement('span')
-   $handle.classname = 'handle'
-   $handle.textContent = "@" + tweet.handle
-   $handle.style.display = "inline-block"
-
-
-   var $content = document.createElement('p')
-   $content.classname = 'tweets'
-   $content.textContent = tweet.content
-   $content.style.display = "block"
-
-   var $timestamp = document.createElement('p')
-   $timestamp.classname = 'time'
-   $timestamp.textContent = tweet.timestamp
-   $timestamp.style.display = "inline-block"
-   $timestamp.style.float = "right"
-
-   $tweet.appendChild($name)
-   $tweet.appendChild($handle)
-   $tweet.appendChild($content)
-   $tweet.setAttribute('class', 'tweet')
-
-   return $tweet
+class User {
+  constructor(id, displayName, handle, profilePic, about) {
+    this.id = id;
+    this.displayName = displayName;
+    this.handle = handle;
+    this.profilePic = profilePic;
+    this.about = about;
+  }
 }
 
-/** Loop through 'tweets'
-for each tweet, bring the name, handle and content to screen
+const users = [
+  new User('Vishnu','@Vish2thenu', 'images/Vish2thenu', 'The newest incarnation of the avatar of artistry.' )
+  new User('just call me Andy','@AndersonPaak', 'images/AndersonPaak', 'Grammy nominated cheerleader prom dated... https://itun.es/us/GrfZeb  international booking beckie@xraytouring.com domestic: cyim@icmpartners.com')
+  new User('Frank Ocean', '@FrankOcean', 'frank.ocean', 'images/FrankOcean', 'Life outside the internet')
+  new User('childishgambino','Childish Gambino','donaldglover','images/DonaldGlover', 'Learn to Code')
+]
+
+const currentUser = users[0];
+const currentUserName = users[0].displayName;
+const currentHandle = users[0].handle;
+const newID = waves.length + 1;
+
+function idGenerator(waves){
+  return waves.length + 1;
+}
+
+function makeWave(waves, id, displayName, handle, profilePic, timestamp, content){
+  waves.push(new Wave(id:id, displayName:displayName, handle:handle, profilePic:profilePic, timestamp:timestamp, content:content))
+}
+
+const waveButton = document.createElement('button');
+waveButton.className = 'wave-button';
+waveButton.setAttribute('type', 'button');
+waveButton.setAttribute('id', 'wave-button');
+waveButton.textContent = 'Start a Wave';
+
+const newWaveButton = document.getElementById('new-wave-button');
+newWaveButton.appendChild(waveButton);
+
+//Create Wave
+
+const makeWave = document.createElement('textarea');
+makeWave.className = 'make-a-wave';
+makeWave.setAttribute('id', 'wave-creator');
+makeWave.setAttribute('type', 'text');
+makeWave.setAttribute('placeholder', 'What\'s in the water?');
+makeWave.setAttribute('maxlength', '280');
+
+const waveSend = document.createElement('button');
+waveSend.className = 'wave-button';
+waveSend.setAttribute('type', 'button');
+waveSend.setAttribute('id', 'wave-button');
+waveSend.textContent = 'Make a Wave';
+
+const newWaveDiv = document.getElementById('new-wave-div');
+newWaveDiv.appendChild(makeWave);
+newWaveDiv.appendChild(wavePost);
+
+// creating the generic elements of a wave
+function renderWaves(waves) {
+
+   for (var i = waves.length -1; i>= 0; i--) {
+
+   var $wave = document.createElement('div');
+   $wave.className = 'waves';
+
+   var $thumbnail = document.createElement('img');
+   $thumbnail.classname = 'thumbnail';
+   $thumbnail.setAttribute('thumbnailPhoto', waves[i].img);
+
+   var $name = document.createElement('h4');
+   $name.classname = 'name';
+   $name.textContent = wave.name;
+
+   var $handle = document.createElement('span');
+   $handle.classname = 'handle';
+   $handle.textContent = wave.handle;
+
+   var $content = document.createElement('p');
+   $content.classname = 'waves';
+   $content.textContent = wave.content;
+
+   var $timestamp = document.createElement('span');
+   $timestamp.classname = 'time';
+   $timestamp.textContent = wave.timestamp;
+
+   $wave.appendChild($name);
+   $wave.appendChild($handle);
+   $wave.appendChild($content);
+   $wave.setAttribute('class', 'wave');
+
+   return $wave
+ }
+}
+
+var $river = renderWaves(waves)
+document.body.appendChild($river)
+
+
+/** Loop through 'waves'
+for each wave, bring the name, handle and content to screen
 **/
-for (var i = 0; i < tweets.length; i++) {
-  var tweet = tweets[i]
-  var $tweet = renderTweet(tweet)
-  var $feed = document.getElementById('feed')
-  $feed.appendChild($tweet)
+for (var i = 0; i < waves.length; i++) {
+  var wave = waves[i]
+  var $wave = renderWave(wave)
+  var $river = document.querySelector('river')
+  $river.appendChild($wave)
 }
 
 /** Profile elements (name, handle, about & cover photo) */
@@ -93,8 +134,9 @@ function renderProfile(profile) {
   var $profile = document.createElement('div')
   $profile.setAttribute('id', 'miniProfile')
 
+
   var $cover = document.createElement('img')
-  $cover.setAttribute('id', 'canopy')
+  $cover.setAttribute('id', 'cover')
   $cover.setAttribute('coverPhoto', profiles.coverPhoto)
   $cover.src = profile.coverPhoto
 
@@ -110,7 +152,7 @@ function renderProfile(profile) {
   $name.textContent = profile.name
 
   var $handle = document.createElement('h3')
-  $handle.textContent = " @" + profile.handle
+  $handle.textContent = profile.handle
 
   var $about = document.createElement('p')
   $about.textContent = profile.about
@@ -135,21 +177,10 @@ function renderProfile(profile) {
   $userInfo.appendChild($handle)
   $userInfo.appendChild($about)
 
+  document.body.appendChild($profile)
+  document.body.appendChild($userInfo)
+
   return $profile
 }
-
-var profiles = [
-  {
-    coverPhoto: 'https://s-media-cache-ak0.pinimg.com/originals/b0/f8/68/b0f868309bae68a8e0774a3b43376deb.jpg',
-    coverPosition: 'center top',
-    thumbnail: 'https://pbs.twimg.com/profile_images/785502482478735360/WyoqOzXi_200x200.jpg',
-    name: 'Vishnu',
-    handle: 'Vish2thenu',
-    about: 'First Generation. University of Michigan Alum. I act. I tell jokes. I try to sing and dance. Spread Love. Spread Light. Go Blue.'
-  }
-]
-
-var $profile = renderProfile(profiles[0])
-
-var $profileView = document.getElementById("profile-view")
-$profileView.appendChild($profile)
+var $profile = renderProfile(user)
+document.body.appendChild($profile)
