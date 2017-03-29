@@ -1,27 +1,29 @@
 //Constructor for waves
 class Wave {
-  constructor(displayName, handle, timestamp, content) {
+  constructor(id, username, displayName, handle, image, timestamp, content) {
     this.id = id;
+    this.username = username;
     this.displayName = displayName;
     this.handle = handle;
-    this.profilePic = profilePic;
+    this.image = image;
     this.timestamp = timestamp;
     this.content = content;
   }
 }
 
 const waves = [
-  new Wave(1, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 1: Congrats to @future on grabbing the #1 & #2 albums in the country. #successandnothingless'),
-  new Wave(2, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 2: Am I the only one who thinks the "More Chune for your headtops so watch how you speak on my name" tag is wack?'),
-  new Wave(3, 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 3: There are a lot of summer bangers on this Drake "playlist" though.')
+  new Wave(1, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 1: Congrats to @future on grabbing the #1 & #2 albums in the country. #successandnothingless'),
+  new Wave(2, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 2: Am I the only one who thinks the "More Chune for your headtops so watch how you speak on my name" tag is wack?'),
+  new Wave(3, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 3: There are a lot of summer bangers on this Drake "playlist" though.')
 ]
 
 
 //Constructor for Users
 
 class User {
-  constructor(id, displayName, handle, profilePic, about) {
+  constructor(id, username, displayName, handle, profilePic, about) {
     this.id = id;
+    this.username = username;
     this.displayName = displayName;
     this.handle = handle;
     this.profilePic = profilePic;
@@ -87,32 +89,36 @@ function renderWaves(waves) {
 
    var $thumbnail = document.createElement('img');
    $thumbnail.classname = 'thumbnail';
-   $thumbnail.setAttribute('thumbnailPhoto', waves[i].img);
+   $thumbnail.setAtrtibute = ('src', waves[i].image);
+   $thumbnail.setAttribute('meta-data-username', waves[i].username);
 
-   var $name = document.createElement('h4');
+   var $name = document.createElement('div');
    $name.classname = 'name';
-   $name.textContent = wave.name;
+   $name.textContent = waves[i].name;
 
    var $handle = document.createElement('span');
    $handle.classname = 'handle';
-   $handle.textContent = wave.handle;
+   $handle.textContent = waves[i].handle;
 
-   var $content = document.createElement('p');
-   $content.classname = 'waves';
-   $content.textContent = wave.content;
+   var $content = document.createElement('div');
+   $content.classname = 'wave';
+   $content.textContent = waves[i].content;
 
    var $timestamp = document.createElement('span');
    $timestamp.classname = 'time';
-   $timestamp.textContent = wave.timestamp;
+   $timestamp.textContent = waves[i].timestamp;
 
+   $wave.appendChild($thumbnail)
    $wave.appendChild($name);
    $wave.appendChild($handle);
    $wave.appendChild($content);
+   $wave.appendChild($timestamp);
    $wave.setAttribute('class', 'wave');
 
    return $wave
  }
 }
+renderWaves();
 
 var $river = renderWaves(waves)
 document.body.appendChild($river)
