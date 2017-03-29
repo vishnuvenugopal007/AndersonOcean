@@ -38,6 +38,7 @@ textarea,
 #cover {
  height: 20vh;
  background-color: grey;
+
 }
 
 #profile-image {
@@ -98,5 +99,4 @@ textarea,
 .wave-content {
   position: relative;
   top: 4vh;
-
 }

@@ -21,6 +21,7 @@ const waves = [
 //Constructor for Users
 
 class User {
+<<<<<<< HEAD
   constructor(id, username, displayName, handle, profilePic, about) {
     this.id = id;
     this.username = username;
@@ -73,6 +74,11 @@ const wavePost = document.createElement('button');
 waveSend.className = 'wave-post';
 waveSend.setAttribute('type', 'button');
 waveSend.setAttribute('id', 'wave-send');
+
+const waveSend = document.createElement('button');
+waveSend.className = 'wave-button';
+waveSend.setAttribute('type', 'button');
+waveSend.setAttribute('id', 'wave-button');
 waveSend.textContent = 'Make a Wave';
 
 const newWaveDiv = document.getElementById('new-wave-div');
