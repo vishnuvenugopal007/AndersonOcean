@@ -21,14 +21,14 @@ const waves = [
 //Constructor for Users
 
 class User {
-<<<<<<< HEAD
-  constructor(id, username, displayName, handle, profilePic, about) {
+  constructor(id, username, displayName, handle, profilePic, about, location) {
     this.id = id;
     this.username = username;
     this.displayName = displayName;
     this.handle = handle;
     this.profilePic = profilePic;
     this.about = about;
+    this.location = location;
   }
 }
 

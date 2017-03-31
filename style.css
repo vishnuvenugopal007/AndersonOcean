@@ -2,7 +2,9 @@ body,
 textarea,
 #splash-button,
 #wavepost,
-#wavebutton
+#wavebutton {
+  font-family: "Verdana", Helvetica;
+}
 
 
 #header {
@@ -32,7 +34,9 @@ textarea,
  float: right;
 }
 
-#header > span {
+#new-wave-div{
+  text-align: center;
+  margin-top: 20px;
 }
 
 #cover {
@@ -40,17 +44,76 @@ textarea,
  background-color: grey;
 
 }
-
-#profile-image {
- height: 4vh;
+.profile {
+  width: 400px;
+  height: 800px;
+  background-color: rgba(20, 117, 180, 0.75);
+  border: solid black 1px;
+  z-index: 100;
+  position: absolute;
+  top: 94px;
+  left: -420px;
+  opacity: 0;
+  transition: all 1s ease-in-out;
 }
 
-#profile-image > img {
- position: relative;
- top: -7vh;
- left: 2vw;
- height: 15vh;
- border: 1px solid grey;
+.profile-div.right {
+  transform: translateX(420px);
+  opacity: 1;
+}
+
+#river {
+  transition: all 1s ease-in-out;
+  background-color: rgba(10, 112, 186, 0.31);
+}
+
+#river.right {
+  transform: translateX(420px);
+}
+
+.name {
+  padding-top: 10px;
+}
+
+.profile-pic {
+  width: 360px;
+  height: 360px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.location,
+.name,
+.about {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.about,
+.location {
+  padding-right: 20px;
+}
+
+.waves {
+  padding: 20px;
+  border: solid 1px black;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.thumbnail {
+  float: left;
+  margin-right: 10px;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.timestamp {
+  float: left;
+  max-width: 70px;
+  margin-right: 15px;
+  margin-bottom: 20px;
 }
 
 #profile-details {
@@ -66,37 +129,4 @@ textarea,
   width: 75vw;
   float: right;
   background-color: rgba(10, 112, 186, 0.31);
-}
-
-.wave-image {
-  height: 5vh;
-  width: 5vw;
-}
-
-
-.wave {
-  padding: 20px;
-  border: solid 1px black;
-  overflow: hidden;
-  margin-bottom: 20px;
-  width: 60%;
-  padding: 30px 20px 30px 20px;
-}
-
-.wave-image > img {
-  position: relative;
-
-  width: 20%;
-  float: left;
-}
-
-.wave-header  {
-  float: left;
-  position: relative;
-  top: 3vh;
-}
-
-.wave-content {
-  position: relative;
-  top: 4vh;
 }
