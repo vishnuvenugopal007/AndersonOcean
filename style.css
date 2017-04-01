@@ -3,8 +3,14 @@ textarea,
 #splash-button,
 #wavepost,
 #wavebutton {
-  font-family: "Verdana", Helvetica;
+  font-family: "Maven Pro", sans-serif;
 }
+
+#heading{
+  font-family: "Cinzel", serif;
+  font-size: 40px;
+}
+
 
 
 #header {
@@ -26,6 +32,7 @@ textarea,
 }
 
 #header > button {
+  font-family: 'Architects Daughter', cursive;
  font-size: 1.3em;
  background-color: white;
  border-radius: 3px;

@@ -70,7 +70,7 @@ makeWave.setAttribute('type', 'text');
 makeWave.setAttribute('placeholder', 'What\'s in the water?');
 makeWave.setAttribute('maxlength', '280');
 
-const wavePost = document.createElement('button');
+const waveButton = document.createElement('button');
 waveSend.className = 'wave-post';
 waveSend.setAttribute('type', 'button');
 waveSend.setAttribute('id', 'wave-send');
@@ -85,12 +85,14 @@ const newWaveDiv = document.getElementById('new-wave-div');
 newWaveDiv.appendChild(makeWave);
 newWaveDiv.appendChild(wavePost);
 
+const river = document.querySelector('#river')
+
 // creating the generic elements of a wave
-function renderWaves(waves) {
+function renderWaves() {
 
    for (var i = waves.length -1; i>= 0; i--) {
 
-   var $wave = document.createElement('div');
+   var $waves = document.createElement('div');
    $wave.className = 'waves';
 
    var $thumbnail = document.createElement('img');
@@ -114,12 +116,13 @@ function renderWaves(waves) {
    $timestamp.classname = 'time';
    $timestamp.textContent = waves[i].timestamp;
 
-   $wave.appendChild($thumbnail)
-   $wave.appendChild($name);
-   $wave.appendChild($handle);
-   $wave.appendChild($content);
-   $wave.appendChild($timestamp);
-   $wave.setAttribute('class', 'wave');
+   $waves.appendChild($thumbnail)
+   $waves.appendChild($name);
+   $waves.appendChild($handle);
+   $waves.appendChild($content);
+   $waves.appendChild($timestamp);
+   river.appendChild($waves)
+   $waves.setAttribute('class', 'wave');
 
    return $wave
  }
