@@ -73,15 +73,10 @@ makeWave.setAttribute('type', 'text');
 makeWave.setAttribute('placeholder', 'What\'s in the water?');
 makeWave.setAttribute('maxlength', '280');
 
-const waveButton = document.createElement('button');
-waveSend.className = 'wave-post';
+const waveSend = document.createElement('button');
+waveSend.className = 'wave-send';
 waveSend.setAttribute('type', 'button');
 waveSend.setAttribute('id', 'wave-send');
-
-const waveSend = document.createElement('button');
-waveSend.className = 'wave-button';
-waveSend.setAttribute('type', 'button');
-waveSend.setAttribute('id', 'wave-button');
 waveSend.textContent = 'Make a Wave';
 
 const newWaveDiv = document.getElementById('new-wave-div');
@@ -149,6 +144,26 @@ function favoriteUpdate() {
   total.textContent = ' ' + faves;
 }
 favoriteUpdate();
+
+// Follow toggle / Follower check.
+
+function followUpdate() {
+  const total = document.getElementById('following')
+  const followers = currentUser.following.length;
+  total.textContent = ' ' + followers
+}
+followUpdate();
+
+function toggleFollow(user, toFollow) {
+  if(user.following.indexOf(toFollow) === -1) {
+    user.following.push(toFollow);
+  } else {
+    const position = usr.following.indexOf(toFollow);
+    user.following.splice(position, 1);
+  }
+  followUpdate();
+  renderWaves();
+}
 
 
 /** Loop through 'waves'
