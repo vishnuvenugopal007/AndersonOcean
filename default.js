@@ -21,7 +21,7 @@ const waves = [
 //Constructor for Users
 
 class User {
-  constructor(id, username, displayName, handle, profilePic, about, location) {
+  constructor(id, username, displayName, handle, profilePic, about, location, faves, followers, following) {
     this.id = id;
     this.username = username;
     this.displayName = displayName;
@@ -29,6 +29,9 @@ class User {
     this.profilePic = profilePic;
     this.about = about;
     this.location = location;
+    this.faves = const faves = [];
+    this.following = const following = [];
+    this.followers = const followers = [];
   }
 }
 
@@ -108,6 +111,11 @@ function renderWaves() {
    $handle.classname = 'handle';
    $handle.textContent = waves[i].handle;
 
+   var $favorite = document.createElement('button');
+   $favorite.classname = 'fa-heart-o'
+   $favorite.setAttribute('type', 'button');
+   $favorite.setAttribute('id', waves[i].id);
+
    var $content = document.createElement('div');
    $content.classname = 'wave';
    $content.textContent = waves[i].content;
@@ -119,6 +127,7 @@ function renderWaves() {
    $waves.appendChild($thumbnail)
    $waves.appendChild($name);
    $waves.appendChild($handle);
+   $waves.appendChild($favorite);
    $waves.appendChild($content);
    $waves.appendChild($timestamp);
    river.appendChild($waves)
@@ -131,6 +140,15 @@ renderWaves();
 
 var $river = renderWaves(waves)
 document.body.appendChild($river)
+
+//linking favorited waves to fave collection
+
+function favoriteUpdate() {
+  const total = document.getElementById('favorited');
+  const faves = currentUser.favorited.length;
+  total.textContent = ' ' + faves;
+}
+favoriteUpdate();
 
 
 /** Loop through 'waves'
