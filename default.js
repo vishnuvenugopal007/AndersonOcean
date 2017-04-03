@@ -36,10 +36,44 @@ class User {
 }
 
 const users = [
-  new User('Vishnu','@Vish2thenu', 'images/Vish2thenu', 'The newest incarnation of the avatar of artistry.' )
-  new User('just call me Andy','@AndersonPaak', 'images/AndersonPaak', 'Grammy nominated cheerleader prom dated... https://itun.es/us/GrfZeb  international booking beckie@xraytouring.com domestic: cyim@icmpartners.com')
-  new User('Frank Ocean', '@FrankOcean', 'frank.ocean', 'images/FrankOcean', 'Life outside the internet')
-  new User('childishgambino','Childish Gambino','donaldglover','images/DonaldGlover', 'Learn to Code')
+  new User( 'Vishnu',
+            '@Vish2thenu',
+            'images/Vish2thenu',
+            'The newest incarnation of the avatar of artistry.',
+            'Los Angeles, CA',
+            [],
+            [],
+            []
+          )
+  new User( 'just call me Andy',
+            '@AndersonPaak',
+            'images/AndersonPaak',
+            'Grammy nominated cheerleader prom dated... https://itun.es/us/GrfZeb  international booking beckie@xraytouring.com domestic: cyim@icmpartners.com',
+            'Los Angeles, CA',
+            [],
+            [],
+            []
+          )
+  new User( 'Frank Ocean',
+            '@FrankOcean',
+            'frank.ocean',
+            'images/FrankOcean',
+            'Chanel',
+            'London, UK',
+            [],
+            [],
+            []
+          )
+  new User( 'childishgambino',
+            'Childish Gambino',
+            'donaldglover',
+            'images/DonaldGlover',
+            'Learn to Code',
+            'Los Angeles, CA',
+            [],
+            [],
+            []
+          )
 ]
 
 const currentUser = users[0];
@@ -84,6 +118,18 @@ newWaveDiv.appendChild(makeWave);
 newWaveDiv.appendChild(wavePost);
 
 const river = document.querySelector('#river')
+
+function timeStamp() {
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const day = date.getUTCDate()
+  const hour = date.getHours()
+  const minutes = date.getMinutes()
+  minutes = minutes > 9 ? minutes : '0' + minutes
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  return months[month] + ' ' + day + ' ' + hour + ':' + minutes
+}
 
 // creating the generic elements of a wave
 function renderWaves() {
@@ -145,6 +191,16 @@ function favoriteUpdate() {
 }
 favoriteUpdate();
 
+function toggleFavorite(user, toFavorite) {
+  if(user.favorited.indexOf(toFavorite) === -1) {
+    user.favorited.push(toFavorite);
+  } else {
+    let position = user.favorited.indexOf(toFavorite);
+    user.favorited.splice(position,1)
+  }
+  favoriteUpdate();
+  renderWaves();
+}
 // Follow toggle / Follower check.
 
 function followUpdate() {
@@ -164,6 +220,30 @@ function toggleFollow(user, toFollow) {
   followUpdate();
   renderWaves();
 }
+
+document.addEventListener('click', function(Event) {
+  if(Event.target.className.indexOf('star') !==-1 {
+    let id = theEvent.target.getAttribute('id')
+    for (i = 0; i < waves.length; i++) {
+      if(waves[i].id === id) {
+        let name = waves[i].username;
+      }
+    }
+    toggleFollow(currentUser, name);
+  }
+  if (Event.target.className.indexOf('waveSend') !== -1) {
+    const newWaveEntry = document.getElementById('wave-creator').value
+    const timestamp = timestamp();
+    const newWaveID = idGenerator(waves)
+    makeWave(waves, newWaveId, newWaveEntry, currentUserName, timestamp, currentUserImage);
+    renderWaves();
+    const clearWave = document.getElementById('wave-creator')
+    function clearContent(element) {
+      element.value = '';
+    }
+    clearContent(clearWave)
+  }
+})
 
 
 /** Loop through 'waves'
