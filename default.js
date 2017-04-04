@@ -12,12 +12,46 @@ class Wave {
 }
 
 const waves = [
-  new Wave(1, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 1: Congrats to @future on grabbing the #1 & #2 albums in the country. #successandnothingless'),
-  new Wave(2, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 2: Am I the only one who thinks the "More Chune for your headtops so watch how you speak on my name" tag is wack?'),
-  new Wave(3, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu', 'timestamp', 'Wave 3: There are a lot of summer bangers on this Drake "playlist" though.')
+  new Wave(1, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu.jpg', 'timestamp', 'Wave 1: Congrats to @future on grabbing the #1 & #2 albums in the country. #successandnothingless'),
+  new Wave(2, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu.jpg', 'timestamp', 'Wave 2: Am I the only one who thinks the "More Chune for your headtops so watch how you speak on my name" tag is wack?'),
+  new Wave(3, 'Vish2thenu', 'Vishnu', '@Vish2thenu', 'images/Vish2thenu.jpg', 'timestamp', 'Wave 3: There are a lot of summer bangers on this Drake "playlist" though.')
 ]
 
+//For Testing...without use of Constructor
 
+const plainWaves = [
+  {
+    id: 1,
+    username: 'Vish2thenu',
+    displayName: 'Vishnu',
+    handle: 'Vish2thenu',
+    image: 'images/Vish2thenu.jpg'
+    timestamp: 'Tuesday, April 4, 10:07 AM'
+    content:
+
+  },
+  {
+    id: 2,
+    username: 'Vish2thenu',
+    displayName: 'Vishnu',
+    handle: 'Vish2thenu',
+    image: 'images/Vish2thenu.jpg'
+    timestamp: 'Monday April 3, 11:17 PM'
+    content:
+
+  },
+  {
+    id: 3,
+    username: 'Vish2thenu',
+    displayName: 'Vishnu',
+    handle: 'Vish2thenu',
+    image: 'images/Vish2thenu.jpg'
+    timestamp:'Monday April 3, 3:27 PM'
+    content:
+
+  },
+
+]
 //Constructor for Users
 
 class User {
@@ -36,7 +70,9 @@ class User {
 }
 
 const users = [
-  new User( 'Vishnu',
+  new User( 1,
+            'Vishnu',
+            'Vishnu',
             '@Vish2thenu',
             'images/Vish2thenu',
             'The newest incarnation of the avatar of artistry.',
@@ -45,7 +81,8 @@ const users = [
             [],
             []
           )
-  new User( 'just call me Andy',
+  new User( 2,
+            'just call me Andy',
             '@AndersonPaak',
             'images/AndersonPaak',
             'Grammy nominated cheerleader prom dated... https://itun.es/us/GrfZeb  international booking beckie@xraytouring.com domestic: cyim@icmpartners.com',
@@ -54,7 +91,8 @@ const users = [
             [],
             []
           )
-  new User( 'Frank Ocean',
+  new User( 3,
+            'Frank Ocean',
             '@FrankOcean',
             'frank.ocean',
             'images/FrankOcean',
@@ -64,7 +102,8 @@ const users = [
             [],
             []
           )
-  new User( 'childishgambino',
+  new User( 4
+            'childishgambino',
             'Childish Gambino',
             'donaldglover',
             'images/DonaldGlover',
@@ -74,6 +113,60 @@ const users = [
             [],
             []
           )
+]
+
+//For Testing...without Use of Constructor
+
+const plainUsers = [
+  {
+    id: 1,
+    username: Vishnu,
+    displayName: ,
+    handle: @Vish2thenu,
+    profilePic: ,
+    about: ,
+    location:
+    faves: [],
+    following: [],
+    followers: []
+  },
+  {
+    id: 2,
+    username: ,
+    displayName: ,
+    handle: ,
+    profilePic: ,
+    about: ,
+    location:
+    faves: [],
+    following: [],
+    followers: []
+  },
+  {
+    id: 3,
+    username: ,
+    displayName: ,
+    handle: ,
+    profilePic: ,
+    about: ,
+    location:
+    faves: [],
+    following: [],
+    followers: []
+  },
+  {
+    id: 4,
+    username: ,
+    displayName: ,
+    handle: ,
+    profilePic: ,
+    about: ,
+    location:
+    faves: [],
+    following: [],
+    followers: []
+  }
+
 ]
 
 const currentUser = users[0];
@@ -245,6 +338,25 @@ document.addEventListener('click', function(Event) {
   }
 })
 
+const text = document.getElementById('new-wave-div')
+const lake = document.getElementById('lake')
+const downStream = document.getElementById('wave-button')
+const upStream = document.getElementById('waveSend')
+
+
+downStream.addEventListener('click', function(event) {
+  text.classList.remove('up')
+  lake.classList.remove('up')
+  downStream.classList.remove('down')
+  upStream.classList.add('up')
+})
+
+upStream.addEventListener('click', function(event) {
+  text.classList.add('up')
+  lake.classList.add('up')
+  downStream.classList.remove('down')
+  upStream.classList.add('up')
+})
 
 /** Loop through 'waves'
 for each wave, bring the name, handle and content to screen
