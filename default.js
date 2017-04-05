@@ -27,8 +27,7 @@ const plainWaves = [
     handle: 'Vish2thenu',
     image: 'images/Vish2thenu.jpg'
     timestamp: 'Tuesday, April 4, 10:07 AM'
-    content:
-
+    content: 'Hello, this is my first wave!'
   },
   {
     id: 2,
@@ -37,7 +36,7 @@ const plainWaves = [
     handle: 'Vish2thenu',
     image: 'images/Vish2thenu.jpg'
     timestamp: 'Monday April 3, 11:17 PM'
-    content:
+    content: 'How are you? This is my second wave.'
 
   },
   {
@@ -47,7 +46,7 @@ const plainWaves = [
     handle: 'Vish2thenu',
     image: 'images/Vish2thenu.jpg'
     timestamp:'Monday April 3, 3:27 PM'
-    content:
+    content: 'Good to meet you, this is my third wave!'
 
   },
 
@@ -357,6 +356,30 @@ upStream.addEventListener('click', function(event) {
   downStream.classList.remove('down')
   upStream.classList.add('up')
 })
+
+const profile-details = document.querySelector('.profile-details')
+const name = document.querySelector('.name')
+const image = document.querySelector('.profile-pic')
+const handle = document.querySelector('.handle')
+const about = document.querySelector('.about')
+const location = document.querySelector('.location')
+
+function renderProile(user, url, name, location, about){
+  name.textContent = user;
+  image.setAttribute('src', 'user[i].image')
+  displayName.textContent = name
+  location.textContent = location
+  about.textContent = about
+  profile.classList.add('right')
+  river.classList.add('right')
+}
+
+document.addEventListener('click', function(){
+  profile.classList.remove('right')
+  river.classList.remove('right')
+})
+
+
 
 /** Loop through 'waves'
 for each wave, bring the name, handle and content to screen
