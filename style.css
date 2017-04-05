@@ -176,7 +176,30 @@ textarea,
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
 
+.new-wave-div,
+.lake,
+.wave-button,
+.wave-send{
+  transition: all 1s ease-in-out;
+}
+
+.new-wave-div.up,
+.lake.up {
+  transform: translateY(-280px);
+}
+.new-wave-div.up,
+.wave-send.up,
+.wave-button.down {
+  opacity: 0;
+}
+.wave-button.down,
+.wave-send.up {
+  pointer-events: none;
+}
+button {
+  cursor: pointer;
 }
 
 #following-tab {
@@ -193,6 +216,7 @@ textarea,
   font-size: 20px;
   margin-bottom: 10px;
   float: right;
+  padding-right: 10px;
 }
 
 #profile-details {
