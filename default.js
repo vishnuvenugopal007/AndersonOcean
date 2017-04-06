@@ -379,6 +379,26 @@ document.addEventListener('click', function(){
   river.classList.remove('right')
 })
 
+document.addEventListener('click', function(event){
+  if(event.target.className.indexOf('thumbnail') !== -1){
+    const userPic = event.target.getAttribute('meta-data-username')
+    for ( i = 0; i < users.length; i++) {
+      if ( users[i].username == userPic) {
+        const $user = users[i].username;
+        const $image = users[i].image;
+        const $name = users[i].name;
+        const $about = users[i].about;
+        const $location = users[i].location;
+      }
+    }
+    profileView(user, image, name, about, location)
+    text.classList.add('up')
+    lake.classList.add('up')
+    downStream.classList.remove('down')
+    upStream.classList.add('up')
+  }
+})
+
 
 
 /** Loop through 'waves'
