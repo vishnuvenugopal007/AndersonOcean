@@ -119,48 +119,48 @@ const users = [
 const plainUsers = [
   {
     id: 1,
-    username: Vishnu,
-    displayName: ,
-    handle: @Vish2thenu,
-    profilePic: ,
+    username: 'Vishnu',
+    displayName: 'Vishnu',
+    handle: '@Vish2thenu',
+    profilePic: 'images/Vish2thenu',
     about: ,
-    location:
+    location: 'California'
     faves: [],
     following: [],
     followers: []
   },
   {
     id: 2,
-    username: ,
-    displayName: ,
-    handle: ,
-    profilePic: ,
-    about: ,
-    location:
+    username: 'AndersonPaak' ,
+    displayName: 'just call me Andy',
+    handle: '@anderson.paak',
+    profilePic: 'images/AndersonPaak',
+    about: 'Grammy nominated, cheerleader prom dated',
+    location: 'Los Angeles',
     faves: [],
     following: [],
     followers: []
   },
   {
     id: 3,
-    username: ,
-    displayName: ,
-    handle: ,
-    profilePic: ,
-    about: ,
-    location:
+    username: 'FrankOcean' ,
+    displayName: 'Nikes',
+    handle: '@christopher.francis.ocean',
+    profilePic: 'images/FrankOcean',
+    about: 'Freee...',
+    location: 'London, UK',
     faves: [],
     following: [],
     followers: []
   },
   {
     id: 4,
-    username: ,
-    displayName: ,
-    handle: ,
-    profilePic: ,
-    about: ,
-    location:
+    username: 'childishgambino' ,
+    displayName:  'Donald Glover',
+    handle: '@donaldglover',
+    profilePic: 'images/Awaken',
+    about: 'Make magic. Learn to code. Live your life.',
+    location: 'Los Angeles, CA/Atlanta, GA'
     faves: [],
     following: [],
     followers: []
