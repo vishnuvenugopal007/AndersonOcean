@@ -25,8 +25,8 @@ const plainWaves = [
     username: 'Vish2thenu',
     displayName: 'Vishnu',
     handle: 'Vish2thenu',
-    image: 'images/Vish2thenu.jpg'
-    timestamp: 'Tuesday, April 4, 10:07 AM'
+    image: 'images/Vish2thenu.jpg',
+    timestamp: 'Tuesday, April 4, 10:07 AM',
     content: 'Hello, this is my first wave!'
   },
   {
@@ -34,8 +34,8 @@ const plainWaves = [
     username: 'Vish2thenu',
     displayName: 'Vishnu',
     handle: 'Vish2thenu',
-    image: 'images/Vish2thenu.jpg'
-    timestamp: 'Monday April 3, 11:17 PM'
+    image: 'images/Vish2thenu.jpg',
+    timestamp: 'Monday April 3, 11:17 PM',
     content: 'How are you? This is my second wave.'
 
   },
@@ -44,8 +44,8 @@ const plainWaves = [
     username: 'Vish2thenu',
     displayName: 'Vishnu',
     handle: 'Vish2thenu',
-    image: 'images/Vish2thenu.jpg'
-    timestamp:'Monday April 3, 3:27 PM'
+    image: 'images/Vish2thenu.jpg',
+    timestamp:'Monday April 3, 3:27 PM',
     content: 'Good to meet you, this is my third wave!'
 
   },
@@ -62,9 +62,9 @@ class User {
     this.profilePic = profilePic;
     this.about = about;
     this.location = location;
-    this.faves = const faves = [];
-    this.following = const following = [];
-    this.followers = const followers = [];
+    this.faves =  [];
+    this.following = [];
+    this.followers = [];
   }
 }
 
@@ -79,7 +79,7 @@ const users = [
             [],
             [],
             []
-          )
+          ),
   new User( 2,
             'just call me Andy',
             '@AndersonPaak',
@@ -89,7 +89,7 @@ const users = [
             [],
             [],
             []
-          )
+          ),
   new User( 3,
             'Frank Ocean',
             '@FrankOcean',
@@ -100,8 +100,8 @@ const users = [
             [],
             [],
             []
-          )
-  new User( 4
+          ),
+  new User( 4,
             'childishgambino',
             'Childish Gambino',
             'donaldglover',
@@ -123,8 +123,8 @@ const plainUsers = [
     displayName: 'Vishnu',
     handle: '@Vish2thenu',
     profilePic: 'images/Vish2thenu',
-    about: ,
-    location: 'California'
+    about: 'About V',
+    location: 'California',
     faves: [],
     following: [],
     followers: []
@@ -160,7 +160,7 @@ const plainUsers = [
     handle: '@donaldglover',
     profilePic: 'images/Awaken',
     about: 'Make magic. Learn to code. Live your life.',
-    location: 'Los Angeles, CA/Atlanta, GA'
+    location: 'Los Angeles, CA/Atlanta, GA',
     faves: [],
     following: [],
     followers: []
@@ -177,9 +177,9 @@ function idGenerator(waves){
   return waves.length + 1;
 }
 
-function makeWave(waves, id, displayName, handle, profilePic, timestamp, content){
+/*function makeWave(waves, id, displayName, handle, profilePic, timestamp, content){
   waves.push(new Wave(id:id, displayName:displayName, handle:handle, profilePic:profilePic, timestamp:timestamp, content:content))
-}
+}*/
 
 const waveButton = document.createElement('button');
 waveButton.className = 'wave-button';
@@ -266,7 +266,7 @@ function renderWaves() {
    river.appendChild($waves)
    $waves.setAttribute('class', 'wave');
 
-   return $wave
+   return $waves
  }
 }
 renderWaves();
@@ -314,7 +314,7 @@ function toggleFollow(user, toFollow) {
 }
 
 document.addEventListener('click', function(Event) {
-  if(Event.target.className.indexOf('star') !==-1 {
+  if(Event.target.className.indexOf('star') !== -1) {
     let id = theEvent.target.getAttribute('id')
     for (i = 0; i < waves.length; i++) {
       if(waves[i].id === id) {
@@ -357,7 +357,7 @@ upStream.addEventListener('click', function(event) {
   upStream.classList.add('up')
 })
 
-const profile-details = document.querySelector('.profile-details')
+const profileDetails = document.querySelector('.profile-details')
 const name = document.querySelector('.name')
 const image = document.querySelector('.profile-pic')
 const handle = document.querySelector('.handle')
@@ -453,6 +453,7 @@ function renderProfile(profile) {
 </div>
 
 */
+
   $profile.appendChild($cover)
   $profile.appendChild($thumbnail)
   $profile.appendChild($userInfo)
