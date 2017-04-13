@@ -172,6 +172,7 @@ const currentUser = users[0];
 const currentUserName = users[0].displayName;
 const currentUserHandle = users[0].handle;
 const currentUserImage = users[0].profilePic;
+const currentWave = users[0].wave[i];
 const newId = waves.length + 1;
 
 function idGenerator(waves){
@@ -208,7 +209,7 @@ waveSend.textContent = 'Make a Wave';
 
 const newWaveDiv = document.getElementById('new-wave-div');
 newWaveDiv.appendChild(makeWave);
-newWaveDiv.appendChild(wavePost);
+newWaveDiv.appendChild(waveSend);
 
 const river = document.querySelector('#river')
 
@@ -219,9 +220,9 @@ function timeStamp() {
   const day = date.getUTCDate()
   const hour = date.getHours()
   const minutes = date.getMinutes()
-  minutes = minutes > 9 ? minutes : '0' + minutes
+  //minutes = minutes > 9 ? minutes : '0' + minutes
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-  return months[month] + ' ' + day + ' ' + hour + ':' + minutes
+  return months[month] + ' ' + day + ' ' + hour + ':' + minutes + year
 }
 
 // creating the generic elements of a wave
@@ -256,7 +257,7 @@ function renderWaves() {
 
    var $timestamp = document.createElement('span');
    $timestamp.classname = 'time';
-   $timestamp.textContent = waves[i].timestamp;
+   $timestamp.textContent = waves[i].timeStamp();
 
    $waves.appendChild($thumbnail)
    $waves.appendChild($name);
@@ -270,7 +271,8 @@ function renderWaves() {
    return $waves
  }
 }
-renderWaves();
+renderWaves($waves);
+renderWaves(plainWaves)
 
 var $river = renderWaves(waves)
 document.body.appendChild($river)
@@ -284,16 +286,29 @@ function favoriteUpdate() {
 }
 favoriteUpdate();
 
-function toggleFavorite(user, toFavorite) {
-  if(user.favorited.indexOf(toFavorite) === -1) {
-    user.favorited.push(toFavorite);
+function toggleFavorite(wave, toFavorite) {
+  if(wave.favorited.indexOf(toFavorite) === -1) {
+    wave.favorited.push(toFavorite);
   } else {
-    let position = user.favorited.indexOf(toFavorite);
-    user.favorited.splice(position,1)
+    let position = wave.favorited.indexOf(toFavorite);
+    wave.favorited.splice(position,1)
   }
   favoriteUpdate();
   renderWaves();
 }
+
+document.addEventListener('click', function(Event) {
+  if(Event.target.className.indexOf('star') !== -1) {
+    let id = event.target.getAttribute('id')
+    for (i = 0; i < waves.length; i++) {
+      if (waves[i].id === id) {
+        toggleFavorite(currentWave, id);
+      }
+    }
+    toggleFavorite(currentWave, id);
+    favoriteUpdate();
+  }
+})
 // Follow toggle / Follower check.
 
 function followUpdate() {
@@ -314,8 +329,9 @@ function toggleFollow(user, toFollow) {
   renderWaves();
 }
 
+
 document.addEventListener('click', function(Event) {
-  if(Event.target.className.indexOf('star') !== -1) {
+  if(Event.target.className.indexOf('ship') !== -1) {
     let id = event.target.getAttribute('id')
     for (i = 0; i < waves.length; i++) {
       if(waves[i].id === id) {
@@ -325,6 +341,7 @@ document.addEventListener('click', function(Event) {
     }
     toggleFollow(currentUser, name);
   }
+})
   if (Event.target.className.indexOf('waveSend') !== -1) {
     const newWaveEntry = document.getElementById('wave-creator').value
     const timestamp = timestamp();
@@ -337,7 +354,6 @@ document.addEventListener('click', function(Event) {
     }
     clearContent(clearWave)
   }
-})
 
 const text = document.getElementById('new-wave-div')
 const lake = document.getElementById('lake')
@@ -345,7 +361,8 @@ const downStream = document.getElementById('wave-button')
 const upStream = document.getElementById('waveSend')
 
 
-downStream.addEventListener('click', function(event) {
+downStream.addEventListener('click', function(Event) {
+  //define Event
   text.classList.remove('up')
   lake.classList.remove('up')
   downStream.classList.remove('down')
@@ -353,6 +370,7 @@ downStream.addEventListener('click', function(event) {
 })
 
 upStream.addEventListener('click', function(event) {
+  //define Event
   text.classList.add('up')
   lake.classList.add('up')
   downStream.classList.remove('down')
@@ -407,9 +425,8 @@ document.addEventListener('click', function(event){
 for each wave, bring the name, handle and content to screen
 **/
 for (var i = 0; i < waves.length; i++) {
-  var wave = waves[i]
-  var $wave = renderWave(wave)
-  var $river = document.querySelector('river')
+  var $waves = waves[i]
+  var $waves = renderWave(waves)
   $river.appendChild($wave)
 }
 
