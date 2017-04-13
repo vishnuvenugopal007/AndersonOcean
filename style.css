@@ -122,11 +122,23 @@ textarea,
 }
 
 .star {
+  /* fa-star */
   float: right;
   border: none;
   background-color: white;
   margin-top: -15px;
-  color: rgb(238, 223, 23); 
+  color: rgb(238, 223, 23);
+  /*change to yellow on click*/
+}
+
+.ship {
+  /* fa-ship */
+  float: right;
+  border: none;
+  background-color: rgba(20, 117, 180, 0.75);
+  margin-top: -15px;
+  color: white;
+  /* change to black? on click */
 }
 
 .wave {

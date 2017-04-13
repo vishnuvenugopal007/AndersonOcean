@@ -15,7 +15,7 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "indent": [
+        /*"indent": [
             "error",
             "tab"
         ],
@@ -30,6 +30,6 @@ module.exports = {
         "semi": [
             "error",
             "never"
-        ]
+        ]*/
     }
 };
