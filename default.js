@@ -170,8 +170,9 @@ const plainUsers = [
 
 const currentUser = users[0];
 const currentUserName = users[0].displayName;
-const currentHandle = users[0].handle;
-const newID = waves.length + 1;
+const currentUserHandle = users[0].handle;
+const currentUserImage = users[0].profilePic;
+const newId = waves.length + 1;
 
 function idGenerator(waves){
   return waves.length + 1;
@@ -306,7 +307,7 @@ function toggleFollow(user, toFollow) {
   if(user.following.indexOf(toFollow) === -1) {
     user.following.push(toFollow);
   } else {
-    const position = usr.following.indexOf(toFollow);
+    const position = user.following.indexOf(toFollow);
     user.following.splice(position, 1);
   }
   followUpdate();
@@ -315,10 +316,11 @@ function toggleFollow(user, toFollow) {
 
 document.addEventListener('click', function(Event) {
   if(Event.target.className.indexOf('star') !== -1) {
-    let id = theEvent.target.getAttribute('id')
+    let id = event.target.getAttribute('id')
     for (i = 0; i < waves.length; i++) {
       if(waves[i].id === id) {
         let name = waves[i].username;
+        toggleFollow(currentUser, name);
       }
     }
     toggleFollow(currentUser, name);
@@ -326,8 +328,8 @@ document.addEventListener('click', function(Event) {
   if (Event.target.className.indexOf('waveSend') !== -1) {
     const newWaveEntry = document.getElementById('wave-creator').value
     const timestamp = timestamp();
-    const newWaveID = idGenerator(waves)
-    makeWave(waves, newWaveId, newWaveEntry, currentUserName, timestamp, currentUserImage);
+    const newWaveId = idGenerator(waves)
+    makeWave(waves, newWaveId, newWaveEntry, currentUserName, timestamp, currentUserHandle, currentUserImage);
     renderWaves();
     const clearWave = document.getElementById('wave-creator')
     function clearContent(element) {
@@ -364,7 +366,7 @@ const handle = document.querySelector('.handle')
 const about = document.querySelector('.about')
 const location = document.querySelector('.location')
 
-function renderProile(user, url, name, location, about){
+function renderProfile(user, url, name, location, about){
   name.textContent = user;
   image.setAttribute('src', 'user[i].image')
   displayName.textContent = name
