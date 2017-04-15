@@ -115,7 +115,7 @@ const users = [
 ]
 
 //For Testing...without Use of Constructor
-
+/*
 const plainUsers = [
   {
     id: 1,
@@ -167,13 +167,14 @@ const plainUsers = [
   }
 
 ]
+*/
 
 const currentUser = users[0];
 const currentUserName = users[0].displayName;
 const currentUserHandle = users[0].handle;
 const currentUserImage = users[0].profilePic;
 const currentWave = users[0].wave[i];
-const newId = waves.length + 1;
+
 
 function idGenerator(waves){
   return waves.length + 1;
@@ -213,6 +214,7 @@ newWaveDiv.appendChild(waveSend);
 
 const river = document.querySelector('#river')
 
+//function is called in the renderWaves function defined below and each time a wave is created.
 function timeStamp() {
   const date = new Date()
   const year = date.getFullYear()
@@ -231,7 +233,7 @@ function renderWaves() {
    for (var i = waves.length -1; i>= 0; i--) {
 
    var $waves = document.createElement('div');
-   $wave.className = 'waves';
+   $waves.className = 'waves';
 
    var $thumbnail = document.createElement('img');
    $thumbnail.classname = 'thumbnail';
@@ -362,15 +364,15 @@ const upStream = document.getElementById('waveSend')
 
 
 downStream.addEventListener('click', function(Event) {
-  //define Event
+  //Event defined as downStream witch is the wave-button element defined above.
   text.classList.remove('up')
   lake.classList.remove('up')
   downStream.classList.remove('down')
   upStream.classList.add('up')
 })
 
-upStream.addEventListener('click', function(event) {
-  //define Event
+upStream.addEventListener('click', function(Event) {
+  //Event defined as upStream which is the waveSend element defined above.
   text.classList.add('up')
   lake.classList.add('up')
   downStream.classList.remove('down')
@@ -378,6 +380,8 @@ upStream.addEventListener('click', function(event) {
 })
 
 const profileDetails = document.querySelector('.profile-details')
+//The below are all profileDetails. They need to be appended to the dom when
+//the event listener below is called.
 const name = document.querySelector('.name')
 const image = document.querySelector('.profile-pic')
 const handle = document.querySelector('.handle')
@@ -387,15 +391,16 @@ const location = document.querySelector('.location')
 function renderProfile(user, url, name, location, about){
   name.textContent = user;
   image.setAttribute('src', 'user[i].image')
-  displayName.textContent = name
-  location.textContent = location
-  about.textContent = about
-  profile.classList.add('right')
+  name.textContent = name;
+  handle.textContent = handle;
+  location.textContent = location;
+  about.textContent = about;
+  profileDetails.classList.add('right')
   river.classList.add('right')
 }
 
 document.addEventListener('click', function(){
-  profile.classList.remove('right')
+  profileDetails.classList.remove('right')
   river.classList.remove('right')
 })
 
@@ -409,14 +414,15 @@ document.addEventListener('click', function(event){
         const $name = users[i].name;
         const $about = users[i].about;
         const $location = users[i].location;
-      }
+
+        profileView($user, $image, $name, $about, $location)
+        text.classList.add('up')
+        lake.classList.add('up')
+        downStream.classList.remove('down')
+        upStream.classList.add('up')
     }
-    profileView(user, image, name, about, location)
-    text.classList.add('up')
-    lake.classList.add('up')
-    downStream.classList.remove('down')
-    upStream.classList.add('up')
   }
+}
 })
 
 
@@ -426,12 +432,12 @@ for each wave, bring the name, handle and content to screen
 **/
 for (var i = 0; i < waves.length; i++) {
   var $waves = waves[i]
-  var $waves = renderWave(waves)
-  $river.appendChild($wave)
+  var $river = renderWave(waves)
+  $river.appendChild($waves)
 }
 
 /** Profile elements (name, handle, about & cover photo) */
-function renderProfile(profile) {
+function profileView(profile) {
 
   var $profile = document.createElement('div')
   $profile.setAttribute('id', 'miniProfile')
@@ -439,11 +445,11 @@ function renderProfile(profile) {
 
   var $cover = document.createElement('img')
   $cover.setAttribute('id', 'cover')
-  $cover.setAttribute('coverPhoto', profiles.coverPhoto)
+  $cover.setAttribute('coverPhoto', users.coverPhoto)
   $cover.src = profile.coverPhoto
 
   var $thumbnail = document.createElement('img')
-  $thumbnail.setAttribute('profilePic', profiles.thumbnail)
+  $thumbnail.setAttribute('profilePic', users.profilePic)
   $thumbnail.src = profile.thumbnail
 
   var $userInfo = document.createElement('div')
@@ -485,5 +491,5 @@ function renderProfile(profile) {
 
   return $profile
 }
-var $profile = renderProfile(user)
+var $profile = renderProfile(users)
 document.body.appendChild($profile)
