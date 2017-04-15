@@ -6,7 +6,7 @@ class Wave {
     this.displayName = displayName;
     this.handle = handle;
     this.image = image;
-    this.timestamp = timestamp;
+    this.timestamp = timeStamp();
     this.content = content;
   }
 }
@@ -64,6 +64,7 @@ class User {
     this.location = location;
     this.faves =  [];
     this.following = [];
+    //following is used below lines 324 to 333, not sure what error is about.
     this.followers = [];
   }
 }
@@ -289,11 +290,11 @@ function favoriteUpdate() {
 favoriteUpdate();
 
 function toggleFavorite(wave, toFavorite) {
-  if(wave.favorited.indexOf(toFavorite) === -1) {
-    wave.favorited.push(toFavorite);
+  if(wave.faves.indexOf(toFavorite) === -1) {
+    wave.faves.push(toFavorite);
   } else {
-    let position = wave.favorited.indexOf(toFavorite);
-    wave.favorited.splice(position,1)
+    let position = wave.faves.indexOf(toFavorite);
+    wave.faves.splice(position,1)
   }
   favoriteUpdate();
   renderWaves();
@@ -302,7 +303,7 @@ function toggleFavorite(wave, toFavorite) {
 document.addEventListener('click', function(Event) {
   if(Event.target.className.indexOf('star') !== -1) {
     let id = event.target.getAttribute('id')
-    for (i = 0; i < waves.length; i++) {
+    for (var i = 0; i < waves.length; i++) {
       if (waves[i].id === id) {
         toggleFavorite(currentWave, id);
       }
@@ -335,7 +336,7 @@ function toggleFollow(user, toFollow) {
 document.addEventListener('click', function(Event) {
   if(Event.target.className.indexOf('ship') !== -1) {
     let id = event.target.getAttribute('id')
-    for (i = 0; i < waves.length; i++) {
+    for (var i = 0; i < waves.length; i++) {
       if(waves[i].id === id) {
         let name = waves[i].username;
         toggleFollow(currentUser, name);
@@ -386,7 +387,9 @@ const name = document.querySelector('.name')
 const image = document.querySelector('.profile-pic')
 const handle = document.querySelector('.handle')
 const about = document.querySelector('.about')
+//used below in renderProfile function
 const location = document.querySelector('.location')
+//used below in renderProfile function
 
 function renderProfile(user, url, name, location, about){
   name.textContent = user;
@@ -407,7 +410,7 @@ document.addEventListener('click', function(){
 document.addEventListener('click', function(event){
   if(event.target.className.indexOf('thumbnail') !== -1){
     const userPic = event.target.getAttribute('meta-data-username')
-    for ( i = 0; i < users.length; i++) {
+    for ( var i = 0; i < users.length; i++) {
       if ( users[i].username == userPic) {
         const $user = users[i].username;
         const $image = users[i].image;
@@ -429,13 +432,13 @@ document.addEventListener('click', function(event){
 
 /** Loop through 'waves'
 for each wave, bring the name, handle and content to screen
-**/
+
 for (var i = 0; i < waves.length; i++) {
   var $waves = waves[i]
-  var $river = renderWave(waves)
+  var river = renderWaves(waves)
   $river.appendChild($waves)
 }
-
+**/
 /** Profile elements (name, handle, about & cover photo) */
 function profileView(profile) {
 
