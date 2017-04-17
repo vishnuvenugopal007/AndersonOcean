@@ -174,7 +174,7 @@ const currentUser = users[0];
 const currentUserName = users[0].displayName;
 const currentUserHandle = users[0].handle;
 const currentUserImage = users[0].profilePic;
-const currentWave = users[0].wave[i];
+const currentWave = users[0].waves[i];
 
 
 function idGenerator(waves){
@@ -274,7 +274,7 @@ function renderWaves() {
    return $waves
  }
 }
-renderWaves($waves);
+renderWaves(waves);
 renderWaves(plainWaves)
 
 var $river = renderWaves(waves)
@@ -345,6 +345,10 @@ document.addEventListener('click', function(Event) {
     toggleFollow(currentUser, name);
   }
 })
+
+function clearContent(element) {
+  element.value = '';
+}
   if (Event.target.className.indexOf('waveSend') !== -1) {
     const newWaveEntry = document.getElementById('wave-creator').value
     const timestamp = timestamp();
@@ -352,9 +356,6 @@ document.addEventListener('click', function(Event) {
     makeWave(waves, newWaveId, newWaveEntry, currentUserName, timestamp, currentUserHandle, currentUserImage);
     renderWaves();
     const clearWave = document.getElementById('wave-creator')
-    function clearContent(element) {
-      element.value = '';
-    }
     clearContent(clearWave)
   }
 
