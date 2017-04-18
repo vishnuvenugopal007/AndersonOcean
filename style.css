@@ -16,7 +16,7 @@ textarea,
  padding-right: 2vw;
  padding-top: 2vw;
  padding-bottom: 2vw;
- background-color: rgba(51, 79, 181, 0.64);
+ background-color: rgba(51,79,181,.64);
 }
 
 .container {
@@ -49,10 +49,11 @@ textarea,
  background-color: grey;
 
 }
-.profile {
+
+/*#profile {
   width: 400px;
   height: 800px;
-  background-color: rgba(20, 117, 180, 0.75);
+  background-color: rgba(20,117,180,.75);
   border: solid black 1px;
   z-index: 100;
   position: absolute;
@@ -60,7 +61,7 @@ textarea,
   left: -420px;
   opacity: 0;
   transition: all 1s ease-in-out;
-}
+}*/
 
 .profile-div.right {
   transform: translateX(420px);
@@ -69,7 +70,7 @@ textarea,
 
 #river {
   transition: all 1s ease-in-out;
-  background-color: rgba(10, 112, 186, 0.31);
+  background-color: rgba(10,112,186,.31);
 }
 
 #river.right {
@@ -127,7 +128,7 @@ textarea,
   border: none;
   background-color: white;
   margin-top: -15px;
-  color: rgb(238, 223, 23);
+  color: rgb(238,223,23);
   /*change to yellow on click*/
 }
 
@@ -135,7 +136,7 @@ textarea,
   /* fa-ship */
   float: right;
   border: none;
-  background-color: rgba(20, 117, 180, 0.75);
+  background-color: rgba(20,117,180,.75);
   margin-top: -15px;
   color: white;
   /* change to black? on click */
@@ -171,7 +172,7 @@ textarea,
 .wave-send {
   font-size: 18px;
   font-weight: bold;
-  background-color: rgb(137, 226, 235);
+  background-color: rgb(137,226,235);
   border: solid white 1px;
 }
 
@@ -232,7 +233,7 @@ button {
 #profile-details {
  width: 20vw;
  float: left;
- border: 1px solid rgba(51, 79, 181, 0.64);
+ border: 1px solid rgba(51,79,181,.64);
  border-radius: 3px;
 }
 
@@ -241,5 +242,5 @@ button {
   margin-right: auto;
   width: 75vw;
   float: right;
-  background-color: rgba(10, 112, 186, 0.31);
+  background-color: rgba(10,112,186,.31);
 }
