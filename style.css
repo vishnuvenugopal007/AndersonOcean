@@ -9,6 +9,8 @@ textarea,
 #heading{
   font-family: "Cinzel", serif;
   font-size: 40px;
+  position: relative;
+  padding-right: 15vw;
 }
 
 #header {
@@ -17,6 +19,14 @@ textarea,
  padding-top: 2vw;
  padding-bottom: 2vw;
  background-color: rgba(51,79,181,.64);
+}
+
+#following-tab{
+  font-size: x-small;
+}
+
+#favorites-tab{
+  font-size: x-small;
 }
 
 .container {
@@ -35,8 +45,8 @@ textarea,
  background-color: white;
  border-radius: 3px;
  border: 1px solid grey;
- padding-left: 10vw;
- float: right;
+ margin: auto;
+ float: left;
 }
 
 #new-wave-div{
@@ -196,10 +206,10 @@ textarea,
   transition: all 1s ease-in-out;
 }
 
-.new-wave-div.up,
+/*.new-wave-div.up,
 .lake.up {
   transform: translateY(-280px);
-}
+}*/
 .new-wave-div.up,
 .wave-send.up,
 .wave-button.down {
