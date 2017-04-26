@@ -9,8 +9,9 @@ textarea,
 #heading{
   font-family: "Cinzel", serif;
   font-size: 40px;
-  position: relative;
-  padding-right: 15vw;
+  /*position: relative;*/
+  padding-right: 36vw;
+  margin: auto;
 }
 
 #header {
@@ -22,14 +23,14 @@ textarea,
 }
 
 #following-tab{
-  font-size: x-small;
+  font-size: xx-small;
 }
 
 #favorites-tab{
-  font-size: x-small;
+  font-size: xx-small;
 }
 
-.container {
+/*.container {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -37,7 +38,7 @@ textarea,
   width: 100%;
   max-width: 1000px;
   overflow: scroll;
-}
+}*/
 
 #header > button {
   font-family: 'Architects Daughter', cursive;
@@ -65,7 +66,7 @@ textarea,
   height: 800px;
   background-color: rgba(20,117,180,.75);
   border: solid black 1px;
-  z-index: 100;
+  z-index: -2;
   position: absolute;
   top: 94px;
   left: -420px;
@@ -83,9 +84,9 @@ textarea,
   background-color: rgba(10,112,186,.31);
 }
 
-#river.right {
+/*#river.right {
   transform: translateX(420px);
-}
+}*/
 
 .name {
   padding-top: 10px;

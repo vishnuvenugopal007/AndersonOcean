@@ -1,0 +1,30 @@
+{
+  "name": "AndersonOcean",
+  "version": "1.0.0",
+  "description": "A more robust recreation of Twitter",
+  "main": "default.js",
+  "dependencies": {
+    "eslint": "^3.19.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishnuvenugopal007/AndersonOcean.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishnuvenugopal007/AndersonOcean/issues"
+  },
+  "homepage": "https://github.com/vishnuvenugopal007/AndersonOcean#readme",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-react": "^6.10.3"
+  }
+}
