@@ -1,10 +1,4 @@
 {
-  "ignoreFiles": [
-    "**/node_modules/**/*.*", "examples/**/*.*"
-  ],
-  "rules": {
-    "function-comma-space-after": "never",
-    "number-leading-zero": "never",
-    "max-empty-lines": 1
-  }
+  "ignoreFiles": ["**/node_modules/**/*.*"],
+  "extends": "stylelint-config-standard"
 }
