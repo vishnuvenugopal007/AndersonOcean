@@ -127,12 +127,17 @@ makeWave.setAttribute('id', 'wave-creator');
 makeWave.setAttribute('type', 'text');
 makeWave.setAttribute('placeholder', 'What\'s in the water?');
 makeWave.setAttribute('maxlength', '280');
+makeWave.style.visibility = 'hidden';
 
 const waveSend = document.createElement('button');
 waveSend.className = 'wave-send';
 waveSend.setAttribute('type', 'button');
 waveSend.setAttribute('id', 'wave-send');
 waveSend.textContent = 'Make a Wave';
+
+waveSend.addEventListener("click", () => {
+  makeWave.style.visibility = 'visible';
+})
 
 const newWaveDiv = document.getElementById('new-wave-div');
 newWaveDiv.appendChild(makeWave);
