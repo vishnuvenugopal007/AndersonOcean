@@ -140,6 +140,12 @@ newWaveButton.addEventListener('click', () => {
   makeWave.style.visibility = 'visible'
 })
 
+const splashButton = document.querySelector('#splash-button')
+
+splashButton.addEventListener('click', () => {
+  splashButton.style.visibility = 'visible'
+})
+
 // if (makeWave.style.visibility = 'visible') {
 //   newWaveButton.addEventListener('click', () => {
 //     makeWave.style.visibility = 'hidden'
