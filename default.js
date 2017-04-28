@@ -135,6 +135,7 @@ waveSend.setAttribute('type', 'button');
 waveSend.setAttribute('id', 'wave-send');
 waveSend.textContent = 'Make a Wave';
 
+
 newWaveButton.addEventListener('click', () => {
   makeWave.style.visibility = 'visible'
 })
@@ -144,6 +145,7 @@ newWaveButton.addEventListener('click', () => {
 //     makeWave.style.visibility = 'hidden'
 //   })
 // }
+
 
 waveSend.addEventListener("click", () => {
   makeWave.style.visibility = 'visible';
